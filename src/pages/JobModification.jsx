@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { FaEdit, FaTrashAlt, FaBars, FaTimes } from "react-icons/fa";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import sltLogo from "../assets/images/slt logo.png";
 import searchIcon from "../assets/images/search.png";
 
 const JobModification = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
   const handleEdit = (jobId) => {
     console.log(`Edit job: ${jobId}`);
   };
@@ -25,52 +23,29 @@ const JobModification = () => {
   return (
     <div className="min-h-screen flex flex-col bg-[#f9fbfc]">
       {/* Header */}
-      <header className="bg-white shadow px-6 py-4 flex justify-between items-center rounded-b-3xl border-b relative">
+      <header className="bg-white shadow px-6 py-4 flex justify-between items-center rounded-b-3xl border-b">
         <div className="flex items-center gap-4">
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden text-[#0052a0] text-xl mr-2"
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-            aria-label="Toggle Sidebar"
-          >
-            {sidebarOpen ? <FaTimes /> : <FaBars />}
-          </button>
-
           <img src={sltLogo} alt="SLT-MOBITEL Logo" className="h-10" />
           <span className="text-xl font-bold text-[#0066b3]">Training Program</span>
         </div>
-        <div className="space-x-4 md:space-x-6 flex">
-          <Link
-            to="/"
-            className="text-black font-medium hover:bg-[#0066b3] hover:text-white px-3 py-2 rounded transition text-sm md:text-base"
-          >
+        <div className="space-x-6">
+          <Link to="/" className="text-black font-medium hover:bg-[#0066b3] hover:text-white px-4 py-2 rounded transition">
             Home
           </Link>
-          <Link
-            to="#"
-            className="text-black font-medium hover:bg-[#0066b3] hover:text-white px-3 py-2 rounded transition text-sm md:text-base"
-          >
+          <Link to="#" className="text-black font-medium hover:bg-[#0066b3] hover:text-white px-4 py-2 rounded transition">
             Logout
           </Link>
         </div>
       </header>
 
-      <div className="flex flex-1 relative">
+      <div className="flex flex-1">
         {/* Sidebar */}
-        <aside
-          className={`
-            bg-[#0052a0] w-56 py-8 px-4 text-white min-h-screen
-            fixed top-0 left-0 z-30 transform
-            md:relative md:translate-x-0 transition-transform duration-300
-            ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
-          `}
-        >
+        <aside className="bg-[#0052a0] w-56 py-8 px-4 text-white min-h-screen">
           <ul className="space-y-6">
             <li>
               <Link
                 to="/jobcreation"
                 className="block pl-4 hover:text-yellow-400 relative before:content-['▶'] before:absolute before:left-0"
-                onClick={() => setSidebarOpen(false)}
               >
                 Job Creation
               </Link>
@@ -79,7 +54,6 @@ const JobModification = () => {
               <Link
                 to="/jobmodification"
                 className="block pl-4 relative before:content-['▶'] before:absolute before:left-0"
-                onClick={() => setSidebarOpen(false)}
               >
                 Job Modification
               </Link>
@@ -88,7 +62,6 @@ const JobModification = () => {
               <Link
                 to="/received"
                 className="block pl-4 hover:text-yellow-400 relative before:hover:content-['▶'] before:absolute before:left-0"
-                onClick={() => setSidebarOpen(false)}
               >
                 Received CVs
               </Link>
@@ -97,7 +70,6 @@ const JobModification = () => {
               <Link
                 to="/acceptedcv"
                 className="block pl-4 hover:text-yellow-400 relative before:hover:content-['▶'] before:absolute before:left-0"
-                onClick={() => setSidebarOpen(false)}
               >
                 Accepted CVs
               </Link>
@@ -105,23 +77,14 @@ const JobModification = () => {
           </ul>
         </aside>
 
-        {/* Overlay when sidebar open on mobile */}
-        {sidebarOpen && (
-          <div
-            className="fixed inset-0 bg-black opacity-50 z-20 md:hidden"
-            onClick={() => setSidebarOpen(false)}
-            aria-hidden="true"
-          />
-        )}
-
         {/* Main Content */}
         <section className="flex-1 p-6 relative flex flex-col items-center">
           {/* Search Box */}
-          <div className="absolute top-6 right-4 md:right-10 bg-white border border-gray-300 rounded-full shadow-inner flex items-center px-3 py-1 w-40 md:w-auto">
+          <div className="absolute top-6 right-10 bg-white border border-gray-300 rounded-full shadow-inner flex items-center px-4 py-1">
             <input
               type="text"
               placeholder="Search"
-              className="outline-none border-none text-sm px-2 py-1 w-full"
+              className="outline-none border-none text-sm px-2 py-1 w-44"
             />
             <button>
               <img src={searchIcon} alt="Search" className="w-5" />
@@ -129,46 +92,45 @@ const JobModification = () => {
           </div>
 
           {/* Job Modification Table */}
-          <div className="w-full max-w-5xl bg-white rounded-2xl shadow-md p-6 md:p-8 mt-20 hover:scale-[1.01] transition-transform duration-300 overflow-x-auto">
+          <div className="w-full max-w-5xl bg-white rounded-2xl shadow-md p-8 mt-20 hover:scale-[1.01] transition-transform duration-300">
             <h2 className="text-2xl font-bold text-[#0052a0] text-center mb-6">Modify Jobs</h2>
-            <table className="w-full text-sm text-left border-collapse min-w-[600px] md:min-w-full">
-              <thead className="bg-[#0052a0] text-white">
-                <tr>
-                  <th className="rounded-tl-2xl px-4 md:px-6 py-3">Job ID</th>
-                  <th className="px-4 md:px-6 py-3">Job Field</th>
-                  <th className="px-4 md:px-6 py-3">Created Date</th>
-                  <th className="px-4 md:px-6 py-3">Status</th>
-                  <th className="rounded-tr-2xl px-4 md:px-6 py-3">Modification</th>
-                </tr>
-              </thead>
-              <tbody>
-                {jobs.map((job, index) => (
-                  <tr
-                    key={index}
-                    className={index % 2 === 0 ? "bg-[#f5f7fa]" : "bg-white"}
-                  >
-                    <td className="px-4 md:px-6 py-3">{job.id}</td>
-                    <td className="px-4 md:px-6 py-3">{job.field}</td>
-                    <td className="px-4 md:px-6 py-3">{job.date}</td>
-                    <td className="px-4 md:px-6 py-3">{job.status}</td>
-                    <td className="px-4 md:px-6 py-3 flex space-x-4">
-                      <button
-                        onClick={() => handleEdit(job.id)}
-                        className="text-[#0052a0] hover:text-[#003f7d] text-lg"
-                      >
-                        <FaEdit />
-                      </button>
-                      <button
-                        onClick={() => handleDelete(job.id)}
-                        className="text-[#0052a0] hover:text-[#003f7d] text-lg"
-                      >
-                        <FaTrashAlt />
-                      </button>
-                    </td>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm text-left border-collapse">
+                <thead className="bg-[#0052a0] text-white">
+                  <tr>
+                    <th className="rounded-tl-2xl px-6 py-3">Job ID</th>
+                    <th className="px-6 py-3">Job Field</th>
+                    <th className="px-6 py-3">Created Date</th>
+                    <th className="px-6 py-3">Status</th>
+                    <th className="rounded-tr-2xl px-6 py-3">Modification</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {jobs.map((job, index) => (
+                    <tr key={index} className={index % 2 === 0 ? "bg-[#f5f7fa]" : "bg-white"}>
+                      <td className="px-6 py-4">{job.id}</td>
+                      <td className="px-6 py-4">{job.field}</td>
+                      <td className="px-6 py-4">{job.date}</td>
+                      <td className="px-6 py-4">{job.status}</td>
+                      <td className="px-6 py-4 flex space-x-4">
+                        <button
+                          onClick={() => handleEdit(job.id)}
+                          className="text-[#0052a0] hover:text-[#003f7d] text-lg"
+                        >
+                          <FaEdit />
+                        </button>
+                        <button
+                          onClick={() => handleDelete(job.id)}
+                          className="text-[#0052a0] hover:text-[#003f7d] text-lg"
+                        >
+                          <FaTrashAlt />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </section>
       </div>

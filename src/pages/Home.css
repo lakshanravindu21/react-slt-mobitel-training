@@ -19,7 +19,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff;
+  background-color: #ffffff; /* Changed to pure white */
   width: 95%;
   padding: 0.5rem 1rem;
   border-radius: 0.75rem;
@@ -32,14 +32,13 @@
 }
 
 .logo {
-  height: 100px; /* ✅ Increased from 70px to 100px */
-  margin-right: 16px;
+  height: 70px; /* Increased size */
+  margin-right: 12px;
 }
 
 .title {
-  font-size: 2.2rem; /* ✅ Increased from 1.4rem to 2.2rem */
-  font-weight: 800;
-  color: #004080;
+  font-size: 1.4rem;
+  font-weight: 700;
 }
 
 .nav-links a {
@@ -161,21 +160,17 @@
   color: #aaa;
 }
 
-/* ✅ Responsive adjustments */
 @media screen and (max-width: 640px) {
   .title {
-    font-size: 1.8rem; /* ✅ Bigger title on small screens too */
+    font-size: 1.2rem;
   }
-
   .logo {
-    height: 80px; /* ✅ Increased from 60px */
+    height: 60px; /* Match updated logo size */
   }
-
   .nav-links a {
     font-size: 0.9rem;
     margin-left: 12px;
   }
-
   .apply-button {
     text-align: center;
   }

@@ -17,44 +17,33 @@ const JobCreation = () => {
         </nav>
       </header>
 
-      <div className="flex flex-1 flex-col md:flex-row">
+      <div className="flex flex-1">
         {/* Sidebar */}
-        <aside className="w-full md:w-64 bg-[#0052a0] text-white p-6 md:block min-h-[auto] md:min-h-screen">
-          <ul className="space-y-6 mt-4 flex md:flex-col justify-around md:justify-start">
+        <aside className="w-64 bg-[#0052a0] text-white p-6 hidden md:block min-h-screen">
+          <ul className="space-y-6 mt-4">
             <li className="relative text-lg font-semibold">
-              <Link
-                to="/jobcreation"
-                className="pl-6 text-white relative before:content-['▶'] before:absolute before:left-0 before:text-white"
-              >
+              <Link to="/jobcreation" className="pl-6 text-white relative before:content-['▶'] before:absolute before:left-0 before:text-white">
                 Job Creation
               </Link>
             </li>
             <li>
-              <Link to="/jobmodification" className="hover:text-[#cde8ff] block pl-6">
-                Job Modification
-              </Link>
+              <Link to="/jobmodification" className="hover:text-[#cde8ff] block pl-6">Job Modification</Link>
             </li>
             <li>
-              <Link to="/received" className="hover:text-[#cde8ff] block pl-6">
-                Received CVs
-              </Link>
+              <Link to="/received" className="hover:text-[#cde8ff] block pl-6">Received CVs</Link>
             </li>
             <li>
-              <Link to="/acceptedcv" className="hover:text-[#cde8ff] block pl-6">
-                Accepted CVs
-              </Link>
+              <Link to="/acceptedcv" className="hover:text-[#cde8ff] block pl-6">Accepted CVs</Link>
             </li>
           </ul>
         </aside>
 
         {/* Content */}
-        <main className="flex-1 p-6 md:p-10 overflow-auto">
+        <main className="flex-1 p-6 md:p-10">
           <div className="bg-white p-6 md:p-10 rounded-2xl shadow-lg max-w-6xl mx-auto">
-            <h2 className="text-2xl font-bold text-[#333] mb-6">
-              Company Job Vacancy: Web Development Trainee
-            </h2>
+            <h2 className="text-2xl font-bold text-[#333] mb-6">Company Job Vacancy: Web Development Trainee</h2>
             <form className="flex flex-col">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <input
                   type="text"
                   placeholder="Job ID"
