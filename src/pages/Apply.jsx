@@ -13,98 +13,103 @@ const ApplyJob = () => {
 
   return (
     <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed"
+      className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed flex flex-col items-center"
       style={{ backgroundImage: `url(${background})` }}
     >
-      <header className="w-full px-6 md:px-16 mt-4">
-        <div className="max-w-[1600px] mx-auto bg-white rounded-full px-8 py-4 shadow-md flex flex-wrap items-center justify-between gap-6">
+      {/* Header */}
+      <header className="w-[98%] max-w-[1700px] mt-4 bg-white/90 backdrop-blur-md shadow-xl rounded-3xl px-6 md:px-10 py-4">
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-4">
-            <img src={logo} alt="SLT Logo" className="h-14" />
-            <h1 className="text-2xl font-bold text-[#0055A2]">Training Program</h1>
+            <img src={logo} alt="SLT Logo" className="h-12" />
+            <h1 className="text-lg sm:text-xl font-bold text-[#0055A2]">
+              Training Program
+            </h1>
           </div>
-          <nav className="flex flex-wrap gap-8 text-[16px] font-semibold text-gray-700">
-            <a href="/appliedjob" className="hover:text-blue-600">Job status</a>
-            <a href="/applyjob" className="hover:text-blue-600 text-blue-800">Apply for job</a>
-            <a href="/userjobs" className="hover:text-blue-600">Jobs for you</a>
-            <a href="/home" className="hover:text-blue-600">Home</a>
-            <a href="/login" className="hover:text-blue-600">Login</a>
+          <nav className="flex flex-wrap justify-center gap-6 text-[16px] sm:text-lg font-semibold text-gray-800">
+            <a href="/appliedjob" className="hover:text-blue-600 transition">Job Status</a>
+            <a href="/applyjob" className="text-blue-700 font-bold">Apply for Job</a>
+            <a href="/acceptedcv" className="hover:text-blue-600 transition">Jobs for You</a>
+            <a href="/home" className="hover:text-blue-600 transition">Home</a>
+            <a href="/login" className="hover:text-blue-600 transition">Login</a>
           </nav>
         </div>
       </header>
 
-      <div className="w-full max-w-4xl mx-auto mt-12 bg-white p-8 md:p-10 rounded-3xl shadow-2xl backdrop-blur-md">
+      {/* Form Section */}
+      <div className="w-[95%] max-w-4xl mx-auto mt-12 bg-white/90 backdrop-blur-lg p-6 sm:p-10 rounded-3xl shadow-2xl">
         <form>
-          <h2 className="text-lg md:text-xl font-semibold mb-6">
-            Job Title: <span className="font-normal text-gray-700">Web Development Trainee</span>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-gray-800">
+            Apply for Web Development Trainee
           </h2>
 
-          <label className="block mb-4 text-sm font-medium">
-            Name with Initials:
-            <input type="text" name="initials" required className="mt-2 w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          </label>
+          {/* Input Fields */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label className="block mb-2 font-medium text-gray-700">Name with Initials:</label>
+              <input type="text" name="initials" required className="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500" />
+            </div>
 
-          <label className="block mb-4 text-sm font-medium">
-            Full Name:
-            <input type="text" name="fullname" required className="mt-2 w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          </label>
+            <div>
+              <label className="block mb-2 font-medium text-gray-700">Full Name:</label>
+              <input type="text" name="fullname" required className="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500" />
+            </div>
 
-          <label className="block mb-4 text-sm font-medium">
-            Gender:
-            <select name="gender" required className="mt-2 w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
-              <option value="" disabled selected>Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
-          </label>
+            <div>
+              <label className="block mb-2 font-medium text-gray-700">Gender:</label>
+              <select name="gender" required className="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500">
+                <option value="" disabled selected>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
 
-          <label className="block mb-4 text-sm font-medium">
-            Date of Birth:
-            <input type="date" name="dob" required className="mt-2 w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          </label>
+            <div>
+              <label className="block mb-2 font-medium text-gray-700">Date of Birth:</label>
+              <input type="date" name="dob" required className="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500" />
+            </div>
 
-          <label className="block mb-4 text-sm font-medium">
-            Email:
-            <input type="email" name="email" required className="mt-2 w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          </label>
+            <div>
+              <label className="block mb-2 font-medium text-gray-700">Email:</label>
+              <input type="email" name="email" required className="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500" />
+            </div>
 
-          <label className="block mb-4 text-sm font-medium">
-            Contact Number:
-            <input type="tel" name="contact" required className="mt-2 w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          </label>
+            <div>
+              <label className="block mb-2 font-medium text-gray-700">Contact Number:</label>
+              <input type="tel" name="contact" required className="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500" />
+            </div>
 
-          <label className="block mb-4 text-sm font-medium">
-            Field:
-            <select name="field" required className="mt-2 w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
-              <option value="" disabled selected>Select Field</option>
-              <option value="frontend">Frontend</option>
-              <option value="backend">Backend</option>
-              <option value="fullstack">Fullstack</option>
-            </select>
-          </label>
-
-          <div className="upload-section my-8">
-            <label className="block mb-2 text-sm font-medium">Upload your CV here</label>
-            <div className="border-2 border-dashed border-gray-300 p-8 text-center rounded-lg bg-gray-50 text-gray-600">
-              <p className="text-sm mb-2">Drag & Drop files here</p>
-              <span className="block text-sm text-gray-500 mb-2">or</span>
-              <label className="inline-block bg-blue-100 text-blue-700 px-5 py-2 rounded-md cursor-pointer hover:bg-blue-200">
-                Browse Files
-                <input
-                  type="file"
-                  onChange={handleFileChange}
-                  className="hidden"
-                />
-              </label>
-              <p className="mt-2 text-sm text-gray-700">{fileName}</p>
+            <div className="md:col-span-2">
+              <label className="block mb-2 font-medium text-gray-700">Field:</label>
+              <select name="field" required className="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500">
+                <option value="" disabled selected>Select Field</option>
+                <option value="frontend">Frontend</option>
+                <option value="backend">Backend</option>
+                <option value="fullstack">Fullstack</option>
+              </select>
             </div>
           </div>
 
+          {/* Upload CV */}
+          <div className="my-8">
+            <label className="block mb-3 font-medium text-gray-700">Upload your CV</label>
+            <div className="border-2 border-dashed border-gray-300 p-6 sm:p-8 rounded-xl bg-gray-50 text-center text-gray-600">
+              <p className="text-sm mb-2">Drag & Drop your CV here</p>
+              <span className="block text-sm text-gray-500 mb-3">or</span>
+              <label className="inline-block bg-blue-100 text-blue-700 px-6 py-2 rounded-md cursor-pointer hover:bg-blue-200">
+                Browse Files
+                <input type="file" onChange={handleFileChange} className="hidden" />
+              </label>
+              <p className="mt-2 text-sm text-gray-800 font-medium">{fileName}</p>
+            </div>
+          </div>
+
+          {/* Submit Button */}
           <button
             type="submit"
-            className="w-full py-3 bg-blue-700 text-white font-semibold rounded-lg hover:bg-blue-800 transition text-lg"
+            className="w-full py-3 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-bold rounded-xl hover:from-blue-700 hover:to-blue-900 transition text-lg shadow-lg"
           >
-            Submit
+            Submit Application
           </button>
         </form>
       </div>

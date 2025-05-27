@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // ✅ ADD THIS
 import signupImg from '../assets/images/signup.png';
 
 const Signup = () => {
@@ -11,17 +12,19 @@ const Signup = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setError('');
+    setSuccess('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Basic validation
     const { userId, name, password, confirmPassword } = formData;
+
+    // Frontend validation
     if (!userId || !name || !password || !confirmPassword) {
       setError('All fields are required');
       return;
@@ -31,17 +34,28 @@ const Signup = () => {
       return;
     }
 
-    // Submit logic (you can integrate with backend later)
-    console.log('Form submitted:', formData);
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId, name, password })
+      });
 
-    // Reset form
-    setFormData({
-      userId: '',
-      name: '',
-      password: '',
-      confirmPassword: '',
-    });
-    setError('');
+      const data = await response.json();
+      if (response.ok) {
+        setSuccess('Signup successful!');
+        setFormData({
+          userId: '',
+          name: '',
+          password: '',
+          confirmPassword: '',
+        });
+      } else {
+        setError(data.message || 'Signup failed');
+      }
+    } catch (err) {
+      setError('Server error. Please try again later.');
+    }
   };
 
   return (
@@ -60,6 +74,8 @@ const Signup = () => {
         <div className="flex-1 bg-[#0053A0] text-white p-10 flex flex-col justify-center items-center min-w-[320px]">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Create Your Account</h2>
           {error && <div className="mb-4 text-red-300 text-sm">{error}</div>}
+          {success && <div className="mb-4 text-green-300 text-sm">{success}</div>}
+
           <form onSubmit={handleSubmit} className="w-full max-w-md flex flex-col items-center">
             <div className="mb-5 w-full">
               <label className="block mb-2 text-base">User ID</label>
