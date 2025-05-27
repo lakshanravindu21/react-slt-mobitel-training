@@ -6,9 +6,9 @@ const JobCreation = () => {
   return (
     <div className="min-h-screen flex flex-col bg-[#f3f7fa] text-[#333]">
       {/* Header */}
-    <header className="bg-white px-6 md:px-10 py-4 flex justify-between items-center border-b shadow-sm">
+      <header className="bg-white px-6 md:px-10 py-4 flex justify-between items-center border-b shadow-sm">
         <div className="flex items-center gap-3">
-          <img src={logo} alt="SLT-MOBITEL Logo" className="h-10" />
+          <img src={logo} alt="SLT-MOBITEL Logo" className="h-16" /> {/* Increased size here */}
           <span className="text-xl font-bold text-[#0066b3]">Training Program</span>
         </div>
         <div className="flex gap-6 text-[16px] font-semibold">
@@ -16,7 +16,6 @@ const JobCreation = () => {
           <Link to="/logout" className="hover:text-[#0066b3] transition-transform duration-200 transform hover:scale-105">Logout</Link>
         </div>
       </header>
-
 
       <div className="flex flex-1">
         {/* Sidebar */}

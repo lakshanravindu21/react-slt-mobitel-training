@@ -63,18 +63,19 @@ const Home = () => {
           className="h-[450px] w-full bg-cover bg-center rounded-b-3xl"
           style={{ backgroundImage: `url(${mobitelImage})` }}
         ></div>
-<header className="absolute top-0 left-0 right-0 flex justify-between items-center bg-white px-6 py-2 max-w-[1500px] mx-auto rounded-[20px] shadow-md flex-wrap mt-3">
-  <div className="flex items-center gap-4">
-    <img src={sltLogo} alt="SLT Logo" className="h-[75px]" /> {/* changed from 55px to 75px */}
-    <h1 className="text-xl font-bold text-[#0055A2]">Training Program</h1> {/* changed from text-lg to text-xl */}
+<header className="absolute top-0 left-0 right-0 flex justify-between items-center bg-white px-10 py-4 w-[98%] mx-auto rounded-[50px] shadow-lg flex-wrap mt-3 max-w-[1800px]">
+  <div className="flex items-center gap-6">
+    <img src={sltLogo} alt="SLT Logo" className="h-[90px]" /> {/* Increased height */}
+    <h1 className="text-2xl font-extrabold text-[#0055A2]">Training Program</h1> {/* Increased from text-xl */}
   </div>
-  <nav className="flex gap-6 font-semibold flex-wrap text-base"> {/* changed from text-sm to text-base */}
+  <nav className="flex gap-10 font-semibold flex-wrap text-lg"> {/* Increased text size and spacing */}
     <Link to="/" className="hover:text-blue-600">Home</Link>
     <Link to="/about" className="hover:text-blue-600">About Us</Link>
     <Link to="/UserJobs" className="hover:text-blue-600">Vacancies</Link>
     <Link to="/login" className="hover:text-blue-600">Login</Link>
   </nav>
 </header>
+
 
       </div>
 
@@ -97,9 +98,11 @@ const Home = () => {
               ))}
             </ul>
             <div className="mt-auto text-center">
+              <Link to="/apply">
               <button className="bg-gradient-to-r from-[#0055A2] to-[#00C6FF] text-white font-medium rounded-full px-5 py-2 text-sm shadow-md hover:shadow-lg hover:scale-105 transition duration-200 w-full">
                 Apply Now
               </button>
+              </Link>
             </div>
           </div>
         ))}
