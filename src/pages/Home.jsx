@@ -63,18 +63,19 @@ const Home = () => {
           className="h-[450px] w-full bg-cover bg-center rounded-b-3xl"
           style={{ backgroundImage: `url(${mobitelImage})` }}
         ></div>
-        <header className="absolute top-0 left-0 right-0 flex justify-between items-center bg-white px-6 py-2 max-w-[1500px] mx-auto rounded-[20px] shadow-md flex-wrap mt-3">
-          <div className="flex items-center gap-4">
-            <img src={sltLogo} alt="SLT Logo" className="h-[55px]" />
-            <h1 className="text-lg font-bold text-[#0055A2]">Training Program</h1>
-          </div>
-          <nav className="flex gap-5 font-semibold flex-wrap text-sm">
-            <Link to="/" className="hover:text-blue-600">Home</Link>
-            <Link to="/about" className="hover:text-blue-600">About Us</Link>
-            <Link to="/UserJobs" className="hover:text-blue-600">Vacancies</Link>
-            <Link to="/login" className="hover:text-blue-600">Login</Link>
-          </nav>
-        </header>
+<header className="absolute top-0 left-0 right-0 flex justify-between items-center bg-white px-6 py-2 max-w-[1500px] mx-auto rounded-[20px] shadow-md flex-wrap mt-3">
+  <div className="flex items-center gap-4">
+    <img src={sltLogo} alt="SLT Logo" className="h-[75px]" /> {/* changed from 55px to 75px */}
+    <h1 className="text-xl font-bold text-[#0055A2]">Training Program</h1> {/* changed from text-lg to text-xl */}
+  </div>
+  <nav className="flex gap-6 font-semibold flex-wrap text-base"> {/* changed from text-sm to text-base */}
+    <Link to="/" className="hover:text-blue-600">Home</Link>
+    <Link to="/about" className="hover:text-blue-600">About Us</Link>
+    <Link to="/UserJobs" className="hover:text-blue-600">Vacancies</Link>
+    <Link to="/login" className="hover:text-blue-600">Login</Link>
+  </nav>
+</header>
+
       </div>
 
       {/* Job Cards */}

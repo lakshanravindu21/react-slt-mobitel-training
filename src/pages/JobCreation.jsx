@@ -6,16 +6,17 @@ const JobCreation = () => {
   return (
     <div className="min-h-screen flex flex-col bg-[#f3f7fa] text-[#333]">
       {/* Header */}
-      <header className="bg-white px-6 py-4 flex justify-between items-center shadow-md rounded-tr-2xl z-10">
-        <div className="flex items-center gap-4">
-          <img src={logo} alt="SLT-MOBITEL Logo" className="h-12" />
+    <header className="bg-white px-6 md:px-10 py-4 flex justify-between items-center border-b shadow-sm">
+        <div className="flex items-center gap-3">
+          <img src={logo} alt="SLT-MOBITEL Logo" className="h-10" />
           <span className="text-xl font-bold text-[#0066b3]">Training Program</span>
         </div>
-        <nav className="flex gap-6 text-sm font-semibold">
-          <Link to="/" className="hover:text-[#0074e8] transition">Home</Link>
-          <Link to="/logout" className="hover:text-[#0074e8] transition">Logout</Link>
-        </nav>
+        <div className="flex gap-6 text-[16px] font-semibold">
+          <Link to="/" className="hover:text-[#0066b3] transition-transform duration-200 transform hover:scale-105">Home</Link>
+          <Link to="/logout" className="hover:text-[#0066b3] transition-transform duration-200 transform hover:scale-105">Logout</Link>
+        </div>
       </header>
+
 
       <div className="flex flex-1">
         {/* Sidebar */}

@@ -7,24 +7,14 @@ const ReceivedCVs = () => {
   return (
     <div className="min-h-screen bg-[#f1f6fb] flex flex-col">
       {/* Header */}
-      <header className="bg-white px-6 py-4 flex justify-between items-center shadow-md rounded-b-[30px]">
-        <div className="flex items-center gap-4">
-          <img src={sltLogo} alt="SLT-MOBITEL Logo" className="h-12" />
-          <span className="text-[#0066b3] font-bold text-xl">Training Program</span>
+ <header className="bg-white px-6 md:px-10 py-4 flex justify-between items-center border-b shadow-sm">
+        <div className="flex items-center gap-3">
+          <img src={sltLogo} alt="SLT-MOBITEL Logo" className="h-10" />
+          <span className="text-xl font-bold text-[#0066b3]">Training Program</span>
         </div>
-        <div className="flex gap-4">
-          <Link
-            to="/"
-            className="text-black font-semibold text-sm hover:bg-[#0074e8] hover:text-white px-4 py-2 rounded-lg transition"
-          >
-            Home
-          </Link>
-          <Link
-            to="/login"
-            className="text-black font-semibold text-sm hover:bg-[#0074e8] hover:text-white px-4 py-2 rounded-lg transition"
-          >
-            Logout
-          </Link>
+        <div className="flex gap-6 text-[16px] font-semibold">
+          <Link to="/" className="hover:text-[#0066b3] transition-transform duration-200 transform hover:scale-105">Home</Link>
+          <Link to="/logout" className="hover:text-[#0066b3] transition-transform duration-200 transform hover:scale-105">Logout</Link>
         </div>
       </header>
 

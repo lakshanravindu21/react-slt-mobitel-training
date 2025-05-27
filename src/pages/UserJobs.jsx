@@ -9,7 +9,7 @@ const UserJobs = () => {
       className="min-h-screen bg-cover bg-center bg-fixed"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-      {/* Header - Increased radius, full width, slightly shorter */}
+      {/* Header */}
       <header className="w-full px-4 mt-6">
         <div className="bg-white/95 shadow-xl py-3 px-6 rounded-full w-full flex justify-between items-center flex-wrap gap-6 transition-all duration-300">
           <div className="flex items-center">
@@ -35,13 +35,13 @@ const UserJobs = () => {
         </h2>
       </div>
 
-      {/* Job Cards */}
-      <main className="overflow-x-auto mt-12">
-        <div className="flex gap-6 px-6 md:px-12 py-4 min-w-max">
+      {/* Job Cards (Balanced Grid Layout) */}
+      <main className="mt-12 px-6 md:px-12">
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center">
           {jobData.map((job, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl shadow-2xl w-80 shrink-0 transform hover:scale-105 transition-transform duration-300"
+              className="bg-white rounded-2xl shadow-2xl w-80 transform hover:scale-105 transition-transform duration-300"
             >
               <div className="bg-[#003B73] text-white text-center font-bold text-lg py-4 rounded-t-2xl">
                 {job.title}
